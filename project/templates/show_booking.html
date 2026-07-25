@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Show Ticket Booking</title>
+    <style>
+        body{
+            background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(248, 49, 10, 0.5));
+        }
+        #container1{
+            height: 5vh;
+            width: 100%;
+            display: inline-flex;}
+
+        #container1 div{
+            height : 100%;
+            font-weight: 100;
+            font-size: 1.5rem;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            font-style: italic;
+            }
+        
+
+        #div1{
+            margin-top: 25px;
+            width: 70%;
+            text-align:start;}
+
+
+        #div2{
+            margin-top: 25px;
+            width: 100%;
+            text-align: end;}
+
+        /* Horizintal-list */
+
+        .horizontal-list{
+            list-style:none;
+            padding-left: 0px;
+            margin:0px;}
+
+        .horizontal-list li{
+            display:inline-block;
+            margin: auto; 
+            font-weight: 100;
+            font-size: 1.5rem;}
+
+        .horizontal-list li a{
+            color: rgb(8, 47, 77);
+            text-decoration: None;}
+
+        .nav-menu :hover{
+            color: rgb(142, 57, 8);
+            transition: color 1s, border-bottom 4s;}
+
+    </style>
+
+    
+</head>
+<body>
+    {% include 'message.html' %}
+    <div id ="container1" style="margin-top: auto;">
+        <div id = "div1">
+            <I><b>Welcome admin {{ u_name }}🫡😶‍🌫️🙃</b></I>
+        </div>
+        <div id = "div2">
+            <ul class="horizontal-list nav-menu">
+                <li>
+                <a href="/bookings/{{ u_id }}"><b><i>Bookings  &ensp;</i></b></a>
+                </li>
+                
+                <li>
+                <a href="/logout"><b><i>logout</i></b></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id ="container1">
+        <div id = "div1">
+            <I>🎥 Booking : {{ s_name }} at {{ v_name }} 🎥</I>
+        </div>
+        <div id = "div2">
+            <ul class="horizontal-list nav-menu">                
+                <li>
+                    <I>Date : {{ Date }} , Timing : {{s_timing}}</I>
+                </li>
+            </ul>
+
+        </div>
+        
+    </div>
+    <div style="margin-top: 5%;font-size: larger;">
+        <div style="text-align: center;margin-top: 25px;"><h3><b><i>⌛ Available Seats : {{ s_available_seats }} ⌛</i></b></h3></div>
+        <div style="text-align: center;"><h3><b><i>💲 Price : {{ s_price }} 💲</i></b></h3></div><br>
+        <form  action ='/show_booking/{{ u_id }}/{{ s_id }}/{{ v_id }}' method = "POST" style="text-align: center;">
+    
+            <label for="tikect"><b><i>No. of tickets :</i></b> </label>
+            <input type="number" min = 0 , id="ticket" name = "ticket"><br><br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
+            <input type="submit" value = "Proceed" style="color: rgb(1, 1, 23);background-image: linear-gradient(to right, rgba(246, 1, 148, 0.723), rgba(5, 47, 106, 0.5));"> &emsp;&emsp;
+        </form>
+    </div>
+
+
+   <div style="text-align: center;margin-top: 5%;margin-left: 5%;;margin-top: 1%;"><a href="/user_dashboard/{{ u_name }}"><img src="/static/goback2.png" alt="user_login" height="50" width="50"></a></div>
+
+
+    
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login_page</title>
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+</head>
+<body>
+
+  {% include 'message.html' %}
+
+
+  <div style="display: flex; flex-wrap: wrap;justify-content: space-between;">
+    <h2><b><i>Welcome, Dear user😀</i></b></h2>
+    <img src="../static/h1.gif">
+    <a href="/logout" class="button"><h2><b><i>Go Back</i></b></h2></a>
+  </div>
+  <div style="background-image: linear-gradient(to left, rgba(213, 3, 49, 0.99), rgba(141, 196, 168, 0.725),rgba(166, 231, 206, 0.725),rgba(233, 14, 14, 0.725));
+            height:40vh;">
+    <div style="display: flex;flex-wrap: wrap;">
+      <div class="imgcontainer" style="margin-left: 0%;">
+        <img src="../static/login.gif" width="100%" height="100%" alt="Avatar" class="avatar">
+      </div>
+      <div>
+        <form action="/adminsignup" method="POST">
+        
+          <div class="container">
+            <label for="username"><b>Username</b></label>
+            <input type="text" placeholder="Enter username" name="username" required>
+            <label for="password"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" required>
+            &emsp;&emsp;&emsp;&emsp;
+            <button type="submit" class="More_Details-button ">Login</button>
+          </div>
+      </div>
+      <div class="imgcontainer" style="margin-left: 0%;">
+        <img src="../static/login1.gif" width="100%" height="100%" alt="Avatar" class="avatar">
+      </div>
+  
+    </div>
+
+  </div>
+
+  </div>
+  <div style="height:0vh;margin-bottom: 0%">
+      <img src="../static/footer.png" width=100% height=290> 
+  </div>        
+  
+
+</body>
+</html>

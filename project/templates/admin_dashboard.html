@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <linK rel="stylesheet" type="text/css" href="../static/admin_dash_style.css">
+    
+</head>
+<body style="background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(43, 200, 239, 0.725));">
+    {% include 'message.html' %}
+
+    <div id ="container1">
+        <div id = "div1">
+            <h2><I><b>Welcome admin {{ username }}🫡😶‍🌫️🙃</b></I></h2>
+        </div>
+        <div id = "div2">
+            <ul class="horizontal-list text-right nav-menu">
+                <li>
+                <a href="/venue_stats/{{ a_id }}"><h2><b><i>venue Summary  &ensp;</i></b></h2></a>
+                </li>
+                
+                <li>
+                <a href="/logout"><h2><b><i>logout</i></b></h2></a>
+                </li>
+            </ul>
+        </div>
+        
+
+    </div>
+    <div>
+
+        <div id="h">
+            <h2><b><i>Add new Venue</i></b></h2>
+        </div>
+        <div id="div3">
+            <a href="/venue_add/{{ a_id }}"><img src="../static/plus3.png" height="80" width="80"></a>
+        </div>
+
+
+    </div>
+    <div>
+        {% if venues_by_ad|length == 0 %}
+            <h3><b><i>No venues added by {{ username }} yet !</i></b></h3>
+        {% else %}
+            <div class="container2">
+                {% for ven in venues_by_ad %}
+                    
+                  <div class="show-card" id="show ">
+                    
+                    <div class="details">
+                      <span><h2>{{ ven.v_id }}● &ensp; {{ ven.v_name }} </h2></span>
+                      <span><h2> Location : {{ ven.v_location }}</h2></span>
+                    </div> 
+                    
+                    <div  style="text-align: center;">
+                      <span><b><i><h3>Capacity : ⪡ {{ ven.v_capacity }}  ⪢</h3></i></b> </span>
+                    </div> 
+                    
+                    <div class="details">
+                      <span><a href="/venue_update/{{ a_id }}/{{ ven.v_id }}"><button class="More_Details-button"><h4><b><i>Update</i></b></h4></button></a> </span>
+
+                      <span><a href="/venue_delete/{{ a_id }}/{{ ven.v_id }}"><button class="More_Details-button"><h4><b><i>delete</i></b></h4></button></a></span>
+                    </div> 
+                  
+                  
+                    <div style="margin-top: 10px;text-align: center;"><br>
+                      <span class ="button"><a href="/admin_venue_dash/{{ a_id }}/{{ ven.v_id }}"><button class="More_Details-button"><h4><b><i>Manage Venue</i></b></h4></button></a></span>
+                    </div>
+          
+                  </div>
+                  
+                {% endfor %}
+              </div>
+
+
+    {% endif %}
+    </div>
+
+    
+
+
+</body>
+</html>

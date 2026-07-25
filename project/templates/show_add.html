@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Show</title>
+    <style>
+        body{
+            margin-top: 10%;
+            text-align: center;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            background-image: linear-gradient(to left, rgba(198, 117, 225, 0.99), rgba(77, 216, 190, 0.725),rgba(76, 135, 223, 0.725),rgba(207, 74, 236, 0.725))
+        }
+        .More_Details-button {
+            border-radius: 80%;
+            text-align: center;
+            background-image: linear-gradient(to right, rgba(246, 1, 148, 0.723), rgba(5, 47, 106, 0.5));
+        }
+    </style> 
+</head>
+<body>
+    {% include 'message.html' %}
+    <h1><b><i>&emsp;&emsp;Add new show</i></b></h1>
+    <div style="margin: 2%; font-size: x-large;">
+        <form action ="/show_add/{{ a_id }}/{{ v_name }}" method = "POST" style="text-align: center;">
+            &ensp;
+            <label for="s_name">Show Name : </label>
+            <input type="text" id="s_name" name = "show_name" required><br><br>
+
+            &emsp;&emsp;&ensp;&ensp;
+            <label for="timing">Timing: </label> 
+            <input list="timing" name="timing" required><br><br>
+            <datalist id="timing">
+                <option value="8:00">
+                <option value="12:00">
+                <option value="16:00">
+                <option value="20:00">
+                <option value="24:00">
+            </datalist>
+
+            
+            <label for="tag">Genre : </label>
+            <select id="tag" name="tag" required><br><br>
+              <option value="Action">Action</option>
+              <option value="Adventure">Adventure</option>
+              <option value="Comedy">Comedy</option>
+              <option value="Drama">Drama</option>
+              <option value="Fantasy">Fantasy</option>
+              <option value="Horror">Horror</option>
+              <option value="Musical">Musical</option>
+              <option value="Mystery">Mystery</option>
+              <option value="Romance">Romance</option>
+              <option value="Sci-Fi">Sci-Fi</option>
+              <option value="Thriller">Thriller</option>
+            </select>
+
+            <br><br> &emsp;&emsp;&emsp;&ensp;
+            <label for="price"> Price : </label>
+            <input type="number" id="price" name = "price" required><br><br>
+            &emsp;&emsp;&ensp;
+            <label for="director"> Director : </label>
+            <input type="text" id="director" name = "director" required><br><br>
+    
+
+            <label for="available_seats"> Available_seats : </label>
+            <input type="number" min = 0, id="available_seats" name = "available_seats" required><br><br>
+
+
+
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            
+            <input type="submit" value = "Add" class = "More_Details-button" style="font-weight: 700;"> &emsp;
+            
+        </form>
+        <a href="/admin_venue_dash/{{ a_id }}/{{ id }}"><button class = "More_Details-button" style="margin-left: 11.5%;"><b><i>Go Back</i></b></button></a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin's Venue Dashboard</title>
+    <linK rel="stylesheet" type="text/css" href="/static/admin_dash_style.css">   
+</head>
+<body>
+    {% include 'message.html' %}
+    <div id ="container1">
+        <div id = "div1">
+            <h2><b><i>Welcome admin {{ a_username }}🫡😶‍🌫️🙃</i></b></h2>
+        </div>
+        <div id = "div2">
+            <ul class="horizontal-list text-right nav-menu">
+                <li>
+                    <a href="/show_all_stats/{{ a_username }}"><h3><b><i> Shows Summary  &ensp;</i></b></h3></a>
+                </li>
+                <li>
+                    <a href="/admin_dashboard/{{ a_username }}"><h3><b><i>Go Back &ensp;</i></b></h3></a>
+                </li>
+                
+                <li>
+                    <a href="/logout"><h3><b><i>logout</i></b></h3></a>
+                </li>
+            </ul>
+        </div>
+        
+
+    </div>
+    <div>
+        <div id="h">
+            <h3><b><i>⩤. Add Show .⩥</i></b></h3>
+        </div>
+        <div id="div3">
+            <a href="/show_add/{{a_id}}/{{v_name}}"><img src="/static/add_show.png" height="80" width="80"></a>
+        </div>
+    </div>
+
+    <div>
+        {% if v_shows|length == 0 %}
+            <h3>No Shows registered at venue {{ v_name }} yet!</h3>
+    
+        {% else %}
+            <div class="container2">
+                {% for s in v_shows %}
+
+                <div class="show-card" id="show ">
+          
+                    <div class="details">
+                      <span><h2>{{ s.s_name }}</h2> </span>
+                      <span><h2>venue : {{ (s.venues)[0].v_name }};{{ (s.venues)[0].v_location }}</h2></span>
+                    </div> 
+                    
+                    <div class="details">
+                      <span class="Rating"><b><i>Rating : {{ s.s_rating }}/10</i></b> </span>
+                      <span><b><i>Time : {{ s.s_timing }}</i></b></span>
+                    </div>                     
+                    <div class="details">
+                      <span><b><i>Directed by {{ s.s_director }}</i></b> </span>
+                      <span><b><i>Genre : {{ s.s_tags }}</i></b></span>
+                    </div> 
+                    <div class="details">
+                        <span><b><i>Seats_available : {{ s.s_available_seats }}</i></b> </span>
+                        <span><b><i>Price : {{ s.s_price }}</i></b></span>
+                    </div> 
+                    <div class="details" style="margin-top: 20px; margin-left:0px;">
+                        <span><a href="/show_update/{{ a_id }}/{{ v_id }}/{{ s.s_id }}"><button class="More_Details-button";border-radius: 50%;><b><i>Update</i></b></button></a></span>
+                        <span><a href="/venue_show_stats/{{ a_id }}/{{ v_id }}"><button class="More_Details-button"><b><i>venue report</i></b></button></a></span>
+                        <span><a href="/show_delete/{{ a_id }}/{{ v_id }}/{{ s.s_id }}"><button class="More_Details-button";border-radius: 50%;><b><i>Delete</i></b></button></a></span>   
+                    </div>
+          
+                </div>
+
+            {% endfor %}
+
+        {% endif %}
+    </div>
+</body>
+</html>

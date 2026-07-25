@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Ticket Final Booking</title>
+    <style>
+        #container1{
+        height: 5vh;
+        width: 100%;
+        display: inline-flex;
+        }
+
+        #container1 div{
+            height : 100%
+        }
+
+        #div1{
+            width: 70%;
+            text-align:start;
+            font-weight: 100;
+            font-size: 1.2rem;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            font-style: italic;
+
+        }
+
+        #div2{
+            width: 100%;
+            text-align: end;
+        }
+
+
+        .horizontal-list{
+            list-style:none;
+            padding-left: 0px;
+            margin:0px;
+        }
+
+        .horizontal-list li{
+            display:inline-block;
+            margin: auto; 
+            font-weight: 100;
+            font-size: 1.5rem;
+        }
+
+        .horizontal-list li a{
+            color: rgb(8, 47, 77);
+            text-decoration: None;
+        }
+
+
+        .nav-menu :hover{
+            color: rgb(181, 208, 9);
+            
+            transition: color 1s, border-bottom 4s;}
+        
+
+        .text-center{
+            text-align: center;
+        }
+
+        .text-right{
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    {% include 'message.html' %}
+    <div id ="container1">
+        <div id = "div1">
+            <I><b>Welcome admin {{ u_name }}🫡😶‍🌫️🙃</b></I>
+        </div>
+        <div id = "div2">
+            <ul class="horizontal-list nav-menu">
+                <li>
+                <a href="/bookings/{{ u_id }}"><b><i>Bookings  &ensp;</i></b></a>
+                </li>
+                
+                <li>
+                <a href="/logout"><b><i>logout</i></b></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div style="margin-top: 25px;text-align: center;"><h3><I><b>🎥 Booking : {{ s_name }} at {{ v_name }}, {{ v_location }}, Timing : {{ s_timing }},{{ Date }} 🎥</b></I></h3></div>
+    <div style="text-align: center;margin-top: 25px;"><h3><b><i> Total price = {{ t }} </i></b></h3></div>
+    <div style="text-align: center;" class="nav-menu :hover"><a href="/booking_update/{{ u_id }}/{{ s_id }}/{{ v_id }}/{{ n }}"><h3><b><i>💲Book Ticket 💲</i></b></h3></a></div>
+    <div style="text-align: center;" class="nav-menu :hover"><a href="/show_booking/{{ u_id }}/{{ s_id }}/{{ v_id }}"><h3><b><i>💲cancel 💲</i></b></h3></a></div><br>    
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>venue_show_stats</title>
+    <link rel="stylesheet" href="/../static/sstyle.css">
+</head>
+<body>
+    {% include 'message.html' %}
+    <div id ="container1" style="margin-top: auto;">
+        <div id = "div1">
+            <I><b>Welcome dear admin "{{ a_name }}"🫡😶‍🌫️🙃</b></I>
+        </div>
+        <div id = "div2">
+            <ul class="horizontal-list nav-menu">
+                <li>
+                <a href="/admin_venue_dash/{{ a_id }}/{{ v_id }}"><b><i>Go Back &ensp;</i></b></a>
+                </li>
+              
+                <li>
+                <a href="/logout"><b><i>logout</i></b></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+  
+
+    <div class="container2" style="background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(248, 49, 10, 0.5));margin-top: 4%;">
+        <div >
+    
+                <span><img src="/../static/bar_s_g.png" height="500vh" width="700vh"></span>&emsp;&emsp;&emsp;                  
+            
+                <span><img src="/../static/bar_vs_b.png"height="500vh" width="700vh"></span>
+            
+        
+        </div>
+      
+    </div>
+
+</body>
+</html>

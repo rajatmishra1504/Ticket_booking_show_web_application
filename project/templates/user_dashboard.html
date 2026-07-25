@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="../static/sstyle.css">
+  </head>
+  <body>
+    {% include 'message.html' %}
+    <div id ="container1">
+      <div id = "div1">
+          <I><b>Welcome dear {{ u_name }}🫡😶‍🌫️🙃</b></I>
+      </div>
+      <div id = "div2">
+          <ul class="horizontal-list nav-menu">
+              <li>
+              <a href="/bookings/{{ u_id }}"><b><i>Bookings  &ensp;</i></b></a>
+              </li>
+              
+              <li>
+              <a href="/logout"><b><i>logout</i></b></a>
+              </li>
+          </ul>
+      </div>
+    </div>
+    <div id ="container1" class="horizontal-list nav-menu">
+      <div id = "div1">
+        
+          <I style="text-align: end;">
+            <form method="POST" action="/search/{{ u_id }}">
+              
+              <select name = "category" class="More_Details-button" style="font-size: large;font-style: italic;font-family: Georgia, 'Times New Roman', Times, serif;">
+                <option value="show">Show Name</option>
+                <option value="venue">Venue Name</option>
+                <option value="tags">Tags</option>
+                <option value="tags">All_Shows</option>
+              </select>
+              <input type="text" name="query" placeholder="Search" class="More_Details-button" style="font-size: large;font-style: italic;font-family: Georgia, 'Times New Roman', Times, serif;" >
+              <button type="submit" class="More_Details-button" style="font-size: large;font-style: italic;font-family: Georgia, 'Times New Roman', Times, serif;">Search</button>
+            </form>
+          </I>
+      </div>
+      <div id = "div2">
+          <ul class="horizontal-list nav-menu">                
+              <li>
+                  <I>Date : {{ Date }} </I>
+              </li>
+          </ul>
+
+      </div>
+    
+    </div>
+
+
+    <div class="container2">
+      {% for s in s_list %}
+          
+        <div class="show-card" id="show ">
+          
+          <div class="details">
+            <span><h2>{{ s.s_name }}</h2> </span>
+            <span><h2>{{ (s.venues)[0].v_name }}, Location : {{ (s.venues)[0].v_location }}</h2></span>
+          </div> 
+          
+          <div class="details">
+            <span class="Rating"><b><i><h4>Rating : {{ s.s_rating }}/10</h4></i></b> </span>
+            <span><b><i><h4>Time : {{ s.s_timing }}</h4></i></b></span>
+          </div> 
+          
+          <div class="details">
+            <span><b><i>Directed by {{ s.s_director }}</i></b> </span>
+            <span><b><i>Genre : {{ s.s_tags }}</i></b></span>
+          </div> 
+        
+        
+          <div style="margin-top: 20px;" class="details"><br>
+            <span><b><i>Seats_available : {{ s.s_available_seats }}</i></b></span>
+            <span><b><i>Price : {{ s.s_price }}</i></b></span>
+            <span class = "button"><a href="/show_booking/{{ u_id }}/{{ s.s_id }}/{{ (s.venues)[0].v_id }}"><button class="More_Details-button">Book Now</button></a></span>
+          </div>
+
+        </div>
+        
+      {% endfor %}
+    </div>
+
+        
+
+  </body>
+</html>
+

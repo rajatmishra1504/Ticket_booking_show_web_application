@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate the show </title>
+    <style>
+        body{
+            
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image:linear-gradient(to right, rgba(48, 188, 204, 0.723), rgba(244, 10, 119, 0.5));
+        }
+
+        #container1{
+        height: 5vh;
+        width: 100%;
+        display: inline-flex;}
+
+        #container1 div{
+            width:100%;
+            height : 100%
+        }
+        #div1{
+        
+        width: 40%;
+        text-align:start;
+        font-weight: 100;
+        font-size: 1.2rem;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        font-style: italic;
+
+        }
+
+        #div2{
+            
+            text-align: end;
+            width: 50%;
+        }
+        .horizontal-list{
+            list-style:none;
+            padding-left: 0px;
+            margin:0px;
+        }
+
+        .horizontal-list li{
+            display:inline-block;
+            margin: auto; 
+            margin-right: 0%;
+            font-weight: 100;
+            font-size: 1.5rem;
+        }
+        .nav-menu a:hover{
+            color: rgb(98, 36, 3);
+            
+            transition: color 1s
+        }
+        .nav-menu li a { 
+            color: black;text-decoration: none;
+        }  
+
+        
+
+
+    </style>
+</head>
+<body>
+    {% include 'message.html' %}
+    
+    <div id ="container1">
+        <div id = "div1">
+            <I><b>Welcome {{ u_name }}🫡😶‍🌫️🙃</b></I>
+        </div>
+        <div id = "div2">
+            <ul class="horizontal-list  nav-menu">
+                <li>
+                <a href="/user_dashboard/{{ username }}"><b><i>Home &ensp;</i></b></a>
+                </li>
+                
+                <li>
+                <a href="/logout"><b><i>logout</i></b></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div style="text-align: center;">
+        <h3> Add Rating 🎯 </h3>
+    <div>
+        <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"><b><i><h3>Give rating out of 10</h3></i></b></div>
+        <form action ="/rate/{{ u_id }}/{{ s_id }}" method = "POST" style="text-align: center;">
+    
+            <label for="v_name">Rating : </label>
+            <input type="number" min = 0, max = 10, id="v_name" name = "rating"><br><br>
+
+            &emsp;&emsp;&emsp;&emsp;
+            <input type="submit" value = "submit" style="color: rgb(2, 132, 0);"> &emsp;&emsp;
+        </form>
+
+    </div>
+    
+
+</body>
+</html>

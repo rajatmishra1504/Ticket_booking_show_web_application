@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Bookings </title>
+    <linK rel="stylesheet" type="text/css" href="../static/admin_dash_style.css">
+</head>
+<body>
+    {% include 'message.html' %}
+    <div id ="container1">
+        <div id = "div1">
+            <I><b>Welcome {{ u_name }}🫡😶‍🌫️🙃</b></I>
+        </div>
+        <div id = "div2">
+            <ul class="horizontal-list text-right nav-menu">
+                <li>
+                <a href="/user_dashboard/{{ u_name }}"><b><i>Home &ensp;</i></b></a>
+                </li>
+                
+                <li>
+                <a href="/logout"><b><i>logout</i></b></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container2">
+        <div class="show-list">
+    
+            {% for s in u_shows %}
+            
+            <div class="show-card" id="show ">
+                <div class="details">
+                <span><h2>{{ s.s_name }}</h2></span>
+                <span><h2>{{ (s.venues)[0].v_name }}, Location : {{ (s.venues)[0].v_location }}</h2></span>
+                </div> 
+                <div class="details">
+                <span class="Rating"><b><i><h3>Rating : {{ s.s_rating }}/10</h3></i></b> </span>
+                <span><b><i><h3>Price : {{ s.s_price }}</h3></i></b></span>
+                <span><b><i><h3>Time : {{ s.s_timing }}</h3></i></b></span>
+                </div> 
+                <div style="text-align: center"></div>
+                <div class="details">
+                <span><b><i><h3>Directed by {{ s.s_director }}</h3></i></b> </span>
+                <span class ="button"><a href="/rate/{{ u_id }}/{{ s.s_id }}"><button class="More_Details-button"><h3>Rate</h3></button></a></span>
+                <span><b><i><h3>Tags : {{ s.s_tags }}</h3></i></b></span>
+                </div> 
+                
+                
+                <div style="margin-top: 20px;" class="details"><br>
+
+                
+                
+                
+    
+                </div>               
+            </div>
+            
+            {% endfor %}
+        </div>
+        </div>
+    
+    <link rel="stylesheet" href="../static/sstyle.css">
+
+
+
+</body>
+</html>

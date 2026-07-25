@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>venue_update</title>
+    <style>
+        body{
+            margin-top: 10%;
+            text-align: center;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            background-image: linear-gradient(to left, rgba(198, 117, 225, 0.99), rgba(77, 216, 190, 0.725),rgba(76, 135, 223, 0.725),rgba(207, 74, 236, 0.725))
+        }
+        .More_Details-button {
+            border-radius: 80%;
+            text-align: center;
+            background-image: linear-gradient(to right, rgba(246, 1, 148, 0.723), rgba(5, 47, 106, 0.5));
+        }
+    </style>
+</head>
+<body>
+    {% include 'message.html' %}
+    <h1><b><i>&emsp;&emsp;📝 Update venue 📝</i></b></h1><br>
+    <div style="margin: 2%; font-size: x-large;"> 
+        <form action ='/venue_update/{{ a_id }}/{{ id }}' method = "POST" style="text-align: center;">
+    
+            <label for="v_name">Venue Name : </label>
+            <input type="text" id="v_name" name = "venue_name" required><br><br>
+            &emsp;&ensp;
+            <label for="location">Location : </label>
+            <input type="text" id="location" name = "location" required><br><br>
+            &emsp;&ensp;
+            <label for="capacity">Capacity : </label>
+            <input type="number" id="capacity" name = "capacity" required><br><br>
+    
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <input type="submit" value = "Update" class = "More_Details-button" style="font-weight: 600;"> &emsp;
+
+        </form>
+
+    </div>
+    <a href="/admin_dashboard/{{ username }}"><button class = "More_Details-button" style="margin-top: 2%;margin-left: 9%;"><b><i>Go Back</i></b></button></a>
+</body>
+</html>
